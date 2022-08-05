@@ -1,0 +1,13 @@
+<section class="container">
+    <div class=".col-10">
+        {{!-- Options Div - Contains Options for user to select --}}
+        {{#each options as |option|}}
+        {{> game-options}}
+        {{/each}}
+    </div>
+    <div class=".col-10 row justify-content-end">
+        {{!-- Dialog Div - Contains Text from game --}}
+        {{> game-dialog}}
+    </div>
+
+</section>
