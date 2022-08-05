@@ -19,6 +19,9 @@ Dilemma.init(
       defaultValue: 0,
       allowNull: false
     }
+    /**
+     * bedroom kitchen bathroom office staircase
+     */
   },
   {
     // Link to database connection

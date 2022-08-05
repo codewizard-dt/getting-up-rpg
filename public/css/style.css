@@ -1,0 +1,25 @@
+#fake-zoom {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+/* Pseudo element to highlight on hover */
+.video-wrap {
+  display: inline-block;
+  position: relative;
+  flex: 1 0 50%;
+  min-height: 300px;
+}
+.video-overlay {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: calc(100% - 5px);
+  background-image: url(/images/gray-8bit-overlay.png);
+  opacity: 0.2;
+  transition: 400ms;
+  left: 0;
+  top: 0;
+}
+
