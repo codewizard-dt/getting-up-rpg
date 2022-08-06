@@ -18,6 +18,13 @@ Dilemma.init(
       type: DataTypes.INTEGER,
       defaultValue: 0,
       allowNull: false
+    },
+    location: {
+      type: DataTypes.STRING,
+    },
+    initial: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
     /**
      * bedroom kitchen bathroom office staircase
