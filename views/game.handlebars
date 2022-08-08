@@ -1,5 +1,6 @@
-<section class="container">
+<section class="container game-player">
     <div class=".col-10">
+
         {{!-- Options Div - Contains Options for user to select --}}
         {{#each options as |option|}}
         {{> game-options}}
@@ -9,5 +10,22 @@
         {{!-- Dialog Div - Contains Text from game --}}
         {{> game-dialog}}
     </div>
+    <section class="container" id="game-player">
 
+      <h2 id="title">Getting up</h2>
+      <button id="mute-btn">sound on</button>
+
+      <div class=".col-10" id="game-images">
+        <!-- this will contain an image to display on the page -->
+      </div>
+
+      <div class=".col-10" id="choice-box">
+            {{#each options as |option|}}
+            {{> game-options}}
+            {{/each}}
+      </div>
+
+      {{> game-dialog}}
+
+    </section>
 </section>
