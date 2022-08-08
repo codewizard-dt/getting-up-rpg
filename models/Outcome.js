@@ -1,10 +1,11 @@
-const { Model, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const Dilemma = require('./Dilemma');
+const JsonModel = require('./JsonModel');
 
-class Decision extends Model { }
+class Outcome extends JsonModel { }
 
-Decision.init(
+Outcome.init(
   {
     description: {
       type: DataTypes.TEXT,
@@ -34,4 +35,4 @@ Decision.init(
   }
 );
 
-module.exports = Decision;
+module.exports = Outcome;
