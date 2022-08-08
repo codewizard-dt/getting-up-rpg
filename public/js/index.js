@@ -15,4 +15,5 @@ function handleOutcome(outcome) {
 
 }
 $('.choice-btn').on('click', handleChoice)
-// $('#game-play').attr('src','/bathroom.html')
+
+const swup = new Swup()

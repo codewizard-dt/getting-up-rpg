@@ -272,3 +272,8 @@ animation-direction: alternate;}
   z-index: 2;
   background-color: rgba(128, 128, 128, 0.25);
 }
+
+#game-images {
+  height: 500px;
+  overflow: visible
+}
