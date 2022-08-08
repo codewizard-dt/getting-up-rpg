@@ -25,8 +25,9 @@
     align-items: center;
     justify-content: center;
  }
- 
- .pixel-art {
+
+
+.pixel-art {
     image-rendering: pixelated;
  }
  
