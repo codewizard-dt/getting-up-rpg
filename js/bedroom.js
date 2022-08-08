@@ -83,7 +83,7 @@ document.addEventListener("keyup", (e) => {
 
 
 
-/* BONUS! Dpad functionality for mouse and touch */
+/* Dpad functionality for mouse and touch */
 var isPressed = false;
 const removePressedAll = () => {
    document.querySelectorAll(".dpad-button").forEach(d => {
