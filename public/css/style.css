@@ -91,7 +91,7 @@ margin: auto;}
     border-radius: 20px;
     background: #fffefe;
     float: left;
-margin-top: 15%;}}
+margin-top: 15%;}
 
 
 
@@ -271,4 +271,9 @@ animation-direction: alternate;}
   font-size: 50px;
   z-index: 2;
   background-color: rgba(128, 128, 128, 0.25);
+}
+
+#game-images {
+  height: 500px;
+  overflow: visible
 }
