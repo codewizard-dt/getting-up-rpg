@@ -35,7 +35,7 @@ const outcomeData = [
     description: 'Good job! You did one thing on your phone, then set it down..',
     time_change: -5,
     preparedness_change: 0,
-    crisis_change: 5
+    crisis_change: -5
   },
   {
     description: 'Uh oh! You went down an internet rabbit hole',
