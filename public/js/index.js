@@ -16,4 +16,4 @@ function handleOutcome(outcome) {
 }
 $('.choice-btn').on('click', handleChoice)
 
-const swup = new Swup()
+// const swup = new Swup()

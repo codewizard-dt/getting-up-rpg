@@ -204,27 +204,62 @@ animation-direction: alternate;}
   background-color: #000;
   z-index: 0;
 }
+#time {
+
+}
+#crisis {
+  position: absolute;
+  border-radius: 7px; 
+  top: 3vh;
+  left: 50%;
+  width: 60%;
+  height: 22px;
+  margin-left: -11.5%;
+  box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
+  background-color: greenyellow;
+}
+#crisis::-webkit-progress-bar {
+  background-color: yellow;
+  border-radius: 7px;
+}
+#crisis[value]::-webkit-progress-value {
+  background-color: red;
+  border-radius: 7px;
+  box-shadow: 1px 1px 5px 3px rgba( 255, 0, 0, 0.8 );
+}
+#crisis[value]::-moz-progress-bar {
+  background-color: red;
+  border-radius: 7px;
+  box-shadow: 1px 1px 5px 3px rgba( 255, 0, 0, 0.8 );
+}
 #game-images {
   position: absolute;
-  top: 15%;
-  width: 97%;
-  margin: 0 auto;
-  border-radius: 5px;
-  min-height: 50%;
+  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
   z-index: 1;
-  background-color: red;
+}
+#game-images iframe {
+  position: absolute;
+  width: 150%;
+  height: 150%;
 }
 #choice-box {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  top: 25%;
-  width: 97%;
+  transform: translate(-50%, -50%);
+  top: 30%;
+  left: 50%;
+  width: 400px;
   margin: 0 auto;
-  min-height: 30%;
+  min-height: 35%;
   z-index: 2;
 }
-#choice-box p {
+#choice-box button {
   text-align: center;
   border-radius: 25px;
   background-color: rgba(128, 128, 128, 0.25);
@@ -236,7 +271,7 @@ animation-direction: alternate;}
 #dialog-box {
   position: absolute;
   top: 67%;
-  width: 97%;
+  width: 67%;
   background-color: rgba(128, 128, 128, 0.25);
   margin: 0 auto;
   border-radius: 25px;
@@ -247,6 +282,17 @@ animation-direction: alternate;}
   font-size: 25px;
   text-shadow: 2.5px 2.5px #000000;
 }
+#stat-box {
+  position: absolute;
+  left: 71%;
+  top: 67%;
+  width: 27%;
+  background-color: rgba(128, 128, 128, 0.25);
+  margin: 0 auto;
+  border-radius: 25px;
+  min-height: 30%;
+  z-index: 2;
+}
 #mute-btn {
   position: absolute;
   width: 10%;
@@ -256,10 +302,12 @@ animation-direction: alternate;}
   border-radius: 25px;
   padding: 3px;
   background-color: green;
-  font-size: 20px;
+  font-size: 20vh;
   font-weight: bold;
   text-shadow: 2.5px 2.5px #000000;
 }
+<<<<<<< HEAD
+=======
 #title {
   position: absolute;
   word-wrap: break-word;
@@ -277,3 +325,4 @@ animation-direction: alternate;}
   height: 500px;
   overflow: visible
 }
+>>>>>>> main
