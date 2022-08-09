@@ -36,6 +36,7 @@ router.get('/game', async (req, res) => {
 
 // game over
 router.get('/game-over', (req, res) => {
+
   res.send('Game over')
 })
 
