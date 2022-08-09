@@ -7,6 +7,10 @@
   font-family: 'Architects Daughter', cursive;
   color: white;
 }
+
+#StartGameBtn {
+  display: none;
+}
 /* Callie Code Here */
 
 @-webkit-keyframes animacao1 { 0% {background: #000000;}

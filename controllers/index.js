@@ -6,7 +6,7 @@ router.use('/api', apiRoutes)
 
 // homepage
 router.get('/', (req, res) => {
-  res.render('game')
+  res.render('homepage')
 })
 
 // game start
@@ -36,8 +36,9 @@ router.get('/game', async (req, res) => {
 
 // game over
 router.get('/game-over', (req, res) => {
+  const { user_name, crisis_level, preparedness, time_left } = req.session
 
-  res.send('Game over')
+  res.render('gameover', { user_name, crisis_level, preparedness, time_left })
 })
 
 
