@@ -1,20 +1,20 @@
 <section class="container" id="game-player">
 
   <div id="topBar">
-    <h2 class=".col 4"id="time">8:30 am{{{time}}}</h2>
+    <h2 id="time">{{{time}}} am</h2>
     <progress class=".col 6"id="crisis" value="{{{crisis}}}" max="100"></progress>
   </div>
 
   <div id="middleBar">
-    <div class=".col-6" id="choice-box">
+    <div id="choice-box">
       {{#each options as |option|}}
       {{> game-options}}
       {{/each}}
     </div>
 
-    <div class=".col-6" id="game-images">
+    <div id="game-images">
       <!-- this will contain an image to display on the page -->
-      {{!-- {{> game-map}} --}}
+      {{> game-map}}
     </div>
   </div>
 
