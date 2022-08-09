@@ -11,15 +11,18 @@
 
 @media(min-width: 1000px) {
   :root {
-    --pixel-size: 4px;
+    --pixel-size: 3px;
   }
 }
 
-.btn.nav {
+html,
+body {
+  height: 100%;
   position: absolute;
   padding: 5px;
   top: 50%;
   z-index: 2;
+
 }
 .btn.nav.left-nav {
   left: 0;
