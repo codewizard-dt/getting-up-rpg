@@ -4,10 +4,13 @@ const dilemmaData = [
   // bedroom dialogue
   {
     title: 'Wake Up',
-    description: `It’s a Monday.\n6:30 AM.\nAn alarm chirps from your phone.`
+    description: `It’s a Monday.\n6:30 AM.\nAn alarm chirps from your phone.`,
+    location: 'bedroom',
+    initial: true
   },
   {
     title: 'Beep beep',
+
     description: `You come across the funniest meme on Reddit.`
   }
   {
@@ -43,6 +46,7 @@ const dilemmaData = [
 // office dialogue 
   {title: 'Before starting class...'
    description: 'You have time to do one last thing.'
+
   },
   {title: 'Choose carefully...'
    description: 'The implications could be life changing.'

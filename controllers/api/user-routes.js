@@ -2,6 +2,7 @@ const tryCatchHandler = require('../../utils/tryCatchHandler')
 
 const router = require('express').Router()
 
+// /api/user/name
 router.post('/name', tryCatchHandler(async (req, res) => {
   req.session.save(() => {
     req.session.user_name = req.body.user_name
