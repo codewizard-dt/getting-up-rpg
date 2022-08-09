@@ -11,7 +11,7 @@
 
 @media(min-width: 1000px) {
   :root {
-    --pixel-size: 4px;
+    --pixel-size: 3px;
   }
 }
 
@@ -19,7 +19,6 @@
 html,
 body {
   height: 100%;
-  overflow: hidden;
 }
 
 body {

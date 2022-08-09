@@ -6,15 +6,15 @@
   </div>
 
   <div id="middleBar">
+    <div id="game-images">
+      <!-- this will contain an image to display on the page -->
+      {{> game-map}}
+    </div>
+
     <div id="choice-box">
       {{#each options as |option|}}
       {{> game-options}}
       {{/each}}
-    </div>
-
-    <div id="game-images">
-      <!-- this will contain an image to display on the page -->
-      {{> game-map}}
     </div>
   </div>
 
