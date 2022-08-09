@@ -34,14 +34,10 @@ function navigate(direction, room) {
 }
 
 function navClick(ev) {
-  // console.log(ev, this)
   const direction = $(this).hasClass('left-nav') ? 'left' : 'right'
   const room = $(this).data('room')
   console.log(direction, room)
   navigate(direction, room)
-  // $(map).animate({ opacity: 0 }, function () {
-
-  // })
 }
 $('button.nav').on('click', navClick)
 
@@ -124,6 +120,7 @@ const chance = (x, y) => {
 
 //Set up the game loop
 const step = () => {
+  if (!map) return;
   // console.log('step')
   placeCharacter();
   window.requestAnimationFrame(() => {
@@ -147,20 +144,24 @@ const keys = {
   39: directions.right,
   40: directions.down,
 }
-document.addEventListener("keydown", (e) => {
-  var dir = keys[e.which];
-  if (dir && held_directions.indexOf(dir) === -1) {
-    held_directions.unshift(dir)
-  }
-})
 
-document.addEventListener("keyup", (e) => {
-  var dir = keys[e.which];
-  var index = held_directions.indexOf(dir);
-  if (index > -1) {
-    held_directions.splice(index, 1)
-  }
-});
+if (map) {
+  document.addEventListener("keydown", (e) => {
+    var dir = keys[e.which];
+    if (dir && held_directions.indexOf(dir) === -1) {
+      held_directions.unshift(dir)
+    }
+  })
+
+  document.addEventListener("keyup", (e) => {
+    var dir = keys[e.which];
+    var index = held_directions.indexOf(dir);
+    if (index > -1) {
+      held_directions.splice(index, 1)
+    }
+  });
+
+}
 
 
 
@@ -171,16 +172,20 @@ const removePressedAll = () => {
     d.classList.remove("pressed")
   })
 }
-document.body.addEventListener("mousedown", () => {
-  console.log('mouse is down')
-  isPressed = true;
-})
-document.body.addEventListener("mouseup", () => {
-  console.log('mouse is up')
-  isPressed = false;
-  held_directions = [];
-  removePressedAll();
-})
+if (map) {
+  document.body.addEventListener("mousedown", () => {
+    console.log('mouse is down')
+    isPressed = true;
+  })
+  document.body.addEventListener("mouseup", () => {
+    console.log('mouse is up')
+    isPressed = false;
+    held_directions = [];
+    removePressedAll();
+  })
+
+}
+
 const handleDpadPress = (direction, click) => {
   if (click) {
     isPressed = true;
@@ -193,17 +198,19 @@ const handleDpadPress = (direction, click) => {
   }
 }
 //Bind a ton of events for the dpad
-document.querySelector(".dpad-left").addEventListener("touchstart", (e) => handleDpadPress(directions.left, true));
-document.querySelector(".dpad-up").addEventListener("touchstart", (e) => handleDpadPress(directions.up, true));
-document.querySelector(".dpad-right").addEventListener("touchstart", (e) => handleDpadPress(directions.right, true));
-document.querySelector(".dpad-down").addEventListener("touchstart", (e) => handleDpadPress(directions.down, true));
+if (map) {
+  document.querySelector(".dpad-left").addEventListener("touchstart", (e) => handleDpadPress(directions.left, true));
+  document.querySelector(".dpad-up").addEventListener("touchstart", (e) => handleDpadPress(directions.up, true));
+  document.querySelector(".dpad-right").addEventListener("touchstart", (e) => handleDpadPress(directions.right, true));
+  document.querySelector(".dpad-down").addEventListener("touchstart", (e) => handleDpadPress(directions.down, true));
 
-document.querySelector(".dpad-left").addEventListener("mousedown", (e) => handleDpadPress(directions.left, true));
-document.querySelector(".dpad-up").addEventListener("mousedown", (e) => handleDpadPress(directions.up, true));
-document.querySelector(".dpad-right").addEventListener("mousedown", (e) => handleDpadPress(directions.right, true));
-document.querySelector(".dpad-down").addEventListener("mousedown", (e) => handleDpadPress(directions.down, true));
+  document.querySelector(".dpad-left").addEventListener("mousedown", (e) => handleDpadPress(directions.left, true));
+  document.querySelector(".dpad-up").addEventListener("mousedown", (e) => handleDpadPress(directions.up, true));
+  document.querySelector(".dpad-right").addEventListener("mousedown", (e) => handleDpadPress(directions.right, true));
+  document.querySelector(".dpad-down").addEventListener("mousedown", (e) => handleDpadPress(directions.down, true));
 
-document.querySelector(".dpad-left").addEventListener("mouseover", (e) => handleDpadPress(directions.left));
-document.querySelector(".dpad-up").addEventListener("mouseover", (e) => handleDpadPress(directions.up));
-document.querySelector(".dpad-right").addEventListener("mouseover", (e) => handleDpadPress(directions.right));
-document.querySelector(".dpad-down").addEventListener("mouseover", (e) => handleDpadPress(directions.down));
+  document.querySelector(".dpad-left").addEventListener("mouseover", (e) => handleDpadPress(directions.left));
+  document.querySelector(".dpad-up").addEventListener("mouseover", (e) => handleDpadPress(directions.up));
+  document.querySelector(".dpad-right").addEventListener("mouseover", (e) => handleDpadPress(directions.right));
+  document.querySelector(".dpad-down").addEventListener("mouseover", (e) => handleDpadPress(directions.down));
+}
