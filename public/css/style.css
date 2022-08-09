@@ -252,7 +252,6 @@ animation-direction: alternate;}
   width: 50vh;
   height: 50vh;
   z-index: 2;
-  background-color: yellow;
 }
 #choice-box button {
   text-align: center;
