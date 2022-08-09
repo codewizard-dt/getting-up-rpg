@@ -48,6 +48,15 @@ const choiceData = [
     description: 'Must you always rely on substances? (leave kitchen having done nothing)'
     dilemma_id: 3,
   }
+  { description: 'Start Class'
+    dilemma_id: 4,
+  }
+  { description: 'One final task before class'
+    dilemma_id 4,
+  }
+  { description: 'Skip class'
+    dilemma_id: 4,
+  }
 
 ]
 

@@ -1,6 +1,7 @@
 const { Dilemma } = require('../models')
 
 const dilemmaData = [
+  // bedroom dialogue
   {
     title: 'Wake Up',
     description: `It’s a Monday.\n6:30 AM.\nAn alarm chirps from your phone.`
@@ -24,12 +25,22 @@ const dilemmaData = [
   },
   // Choices for dilemma id 1.
   // I think we should have the choices for the cell phone always attached at the end of these prompts.
+
+// bathroom dialogue 
   {title: "The bathroom could use a good cleaning at some point."
    description: 'Is it this weekend that your Mom is visiting?'},
   
+  {title: 'You do might have time to take a shower, at the very least lets get those teeth brushed.'
+   description: "Like your father said: 'Routine is important, listlessness is for losers and dope fiends'"},
+
+// kitchen dialogue  
   {title: "I need coffee if I'm going to get through my class today."
    description: 'Or maybe you should just get back in bed and cry? How long has it been since you last got laid?'
   },
+  {title: "or maybe I should take my prozac. I certainly couldn't do both."
+   description: 'Your driving yourself further from yourself, hiding behind a cloud of Serotonin.'
+  }
+// office dialogue 
   {title: 'Before starting class...'
    description: 'You have time to do one last thing.'
   },
