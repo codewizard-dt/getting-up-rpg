@@ -13,8 +13,7 @@
 
 body {background: #fcfcfc;}
 
-#tudo {width: 750px;
-height: 980px;
+#tudo {
 margin: auto;
 margin-top: 20px;
 border-radius: 100px;
@@ -37,13 +36,13 @@ animation-iteration-count: infinite;
 animation-direction: alternate;}
 
 
-.gameover {width:750px;
+.gametitle {width:750px;
 height: auto;
 padding-top: 60px;
 background: none;
 }
 
-.gameover p {margin-top: 0px;
+.gametitle p {margin-top: 0px;
 margin-bottom: 0px;
 font-size: 100px;
 font-family: 'Architects Daughter', cursive;
@@ -51,7 +50,9 @@ line-height: 120px;
 text-align: center;
 text-shadow: 5px 5px #000000;
 color: #ffffff;
-margin: %;}
+display: block;
+margin-left: 50%;
+margin-right: ;}
 
 .startover	{width: 750px;
 height: auto;
@@ -83,7 +84,15 @@ margin: auto;}
     border-radius: 20px;
     background: #fffefe;
     float: left;
-margin-top: 15%;}}
+margin-top: 15%;}
+
+.sartre {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding-top: 50px;
+}
 
 
 
@@ -181,4 +190,4 @@ animation-name: animacao3;
 animation-duration: 0.15s;
 animation-timing-function:  linear;
 animation-iteration-count: infinite;
-animation-direction: alternate;}
+animation-direction: alternate;} 
