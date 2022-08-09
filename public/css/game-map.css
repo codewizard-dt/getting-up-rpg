@@ -15,18 +15,20 @@
   }
 }
 
-
-html,
-body {
-  height: 100%;
-  overflow: hidden;
+.btn.nav {
+  position: absolute;
+  padding: 5px;
+  top: 50%;
+  z-index: 2;
 }
-
-body {
-  background: var(--bg);
-  display: flex;
+.btn.nav.left-nav {
+  left: 0;
+  transform: translate(-75%,-50%);
 }
-
+.btn.nav.right-nav {
+  right: 0;
+  transform: translate(75%,-50%);
+}
 
 .pixel-art {
   image-rendering: pixelated;
