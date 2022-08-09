@@ -1,7 +1,7 @@
 :root {
     --pixel-size: 2px;
     --grid-cell: calc( var(--pixel-size) * 16);
-    --bg: #9fa7e4;
+    --bg: black;
  }
  @media( min-width: 700px ) {
     :root {
