@@ -26,35 +26,42 @@ const choiceData = [
     dilemma_id: 2,
   },
   {
-    description: 'Brush your teeth.'
+    description: 'Brush your teeth.',
     dilemma_id: 3,
   },
-  { description: 'Take a shower.'
-    dilemma_id: 3,
-  },
-    description: 'Who are you performing for? (leave bathroom having done nothing)'
-    dilemma_id: 3,
-  
   {
-    description: 'Make yourself a coffee'
-     dilemma_id: 3,
+    description: 'Take a shower.',
+    dilemma_id: 3,
+  },
+  {
+    description: 'Who are you performing for? (leave bathroom having done nothing)',
+    dilemma_id: 3,
+
   },
 
   {
-    description: 'Take your Prozac'
+    description: 'Make yourself a coffee',
+    dilemma_id: 3,
+  },
+
+  {
+    description: 'Take your Prozac',
     dilemma_id: 3,
   },
   {
-    description: 'Must you always rely on substances? (leave kitchen having done nothing)'
+    description: 'Must you always rely on substances? (leave kitchen having done nothing)',
     dilemma_id: 3,
-  }
-  { description: 'Start Class'
+  },
+  {
+    description: 'Start Class',
     dilemma_id: 4,
-  }
-  { description: 'One final task before class'
-    dilemma_id 4,
-  }
-  { description: 'Skip class'
+  },
+  {
+    description: 'One final task before class',
+    dilemma_id: 4,
+  },
+  {
+    description: 'Skip class',
     dilemma_id: 4,
   }
 
