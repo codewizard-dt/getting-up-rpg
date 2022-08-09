@@ -3,15 +3,15 @@
   <h2 id="time">{{{time}}}</h2>
   <progress id="crisis" value="{{{crisis}}}" max="100"></progress>
 
-  <div class=".col-10" id="game-images">
+  <div class="col-10" id="game-images">
     <!-- this will contain an image to display on the page -->
-    <iframe id="game-play" src="/bedroom.html"></iframe>
+    {{> game-map }}
   </div>
 
-  <div class=".col-10" id="choice-box">
-        {{#each options as |option|}}
-        {{> game-options}}
-        {{/each}}
+  <div class="col-10" id="choice-box">
+    {{#each options as |option|}}
+    {{> game-options}}
+    {{/each}}
   </div>
 
   {{> game-dialog dilemma}}
