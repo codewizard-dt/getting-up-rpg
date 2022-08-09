@@ -8,192 +8,359 @@
   color: white;
 }
 
-#StartGameBtn {
+#StartGame {
+  position: absolute;
+  border-radius: 10px;
+  background-color: rgba(90, 90, 90, 0.8);
+  border: 1px solid rgba(40, 40, 40, 0.8);
+  box-shadow: 0 0 10px 10px rgba(40, 40, 40, 0.8);
+  padding: 5rem 10rem;
+  text-align: center;
   display: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
+
+#StartGame .user_name {
+  text-transform: uppercase;
+}
+
+#alarm-clock {
+  animation: shake 1s cubic-bezier(.01, -0.96, .96, 2.16) alternate both infinite;
+  width: 5rem;
+  height: 5rem;
+}
+
+@keyframes shake {
+  from {
+    transform: rotate(-15deg)
+  }
+
+  to {
+    transform: rotate(15deg)
+  }
+}
+
+#game-start {
+  background-image: url(/Images/homepage.png);
+  background-size: cover;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 90vh;
+  border-radius: 5%;
+  background-color: #000;
+  z-index: 0;
+}
+
+#game-start .form-group {
+  margin: 0 0 10px 0;
+}
+
 /* Callie Code Here */
 
-@-webkit-keyframes animacao1 { 0% {background: #000000;}
-50% {background: #000000;}
-100% {background: #000000;} }
+@-webkit-keyframes animacao1 {
+  0% {
+    background: #000000;
+  }
 
-@-moz-keyframes animacao1 { 0% {background: #000000;}
-50% {background: #000000;}
-100% {background: #000000;} }
+  50% {
+    background: #000000;
+  }
 
-@keyframes animacao1 { 0% {background: #000000;}
-50% {background: #0f0f0f;}
-100% {background: #535151;} }
-
-#tudo {width: 750px;
-height: 980px;
-margin: auto;
-margin-top: 20px;
-border-radius: 100px;
--webkit-animation-name: animacao1;
--webkit-animation-duration: 5s;
--webkit-animation-timing-function:  linear;
--webkit-animation-iteration-count: infinite;
--webkit-animation-direction: alternate;
-
--moz-animation-name: animacao1;
--moz-animation-duration: 5s;
--moz-animation-timing-function:  linear;
--moz-animation-iteration-count: infinite;
--moz-animation-direction: alternate; 
-
-animation-name: animacao1;
-animation-duration: 5s;
-animation-timing-function:  linear;
-animation-iteration-count: infinite;
-animation-direction: alternate;}
-
-
-.gameover {width:750px;
-height: auto;
-padding-top: 60px;
-background: none;
+  100% {
+    background: #000000;
+  }
 }
 
-.gameover p {margin-top: 0px;
-margin-bottom: 0px;
-font-size: 100px;
-font-family: 'Architects Daughter', cursive;
-line-height: 120px;
-text-align: center;
-text-shadow: 5px 5px #000000;
-color: #ffffff;
+@-moz-keyframes animacao1 {
+  0% {
+    background: #000000;
+  }
+
+  50% {
+    background: #000000;
+  }
+
+  100% {
+    background: #000000;
+  }
 }
 
-.startover	{width: 750px;
-height: auto;
-padding-top: 40px;}
+@keyframes animacao1 {
+  0% {
+    background: #000000;
+  }
 
-.startover p {margin-top: 0px;
-margin-bottom: 0px;
-text-align: center;
-font-size: 60px;
-font-weight: bold;
-font-family: 'Architects Daughter', cursive;
-color: #ffffff;
-text-shadow: 2.5px 2.5px #000000;
-margin-top: 10%;}
+  50% {
+    background: #0f0f0f;
+  }
 
-.opcoes {width: 550px;
-height: auto;
-padding-top: 50px;
-margin: auto;}
+  100% {
+    background: #535151;
+  }
+}
 
-.yes a {text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-    font-family: 'Architects Daughter', cursive;
-    color: #111010;
-    text-decoration: none;
-    text-shadow: 1.5px 1.5px #383636;
-    padding: 25px 100px 25px 100px;
-    border-radius: 20px;
-    background: #fffefe;
-    float: left;
-margin-top: 15%;}
+#tudo {
+  width: 750px;
+  height: 980px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 100px;
+  -webkit-animation-name: animacao1;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
 
+  -moz-animation-name: animacao1;
+  -moz-animation-duration: 5s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
 
-
-@-webkit-keyframes animacao2 { from {-webkit-transform: scale(1);} 
- to {-webkit-transform: scale(1.2);} }
-
-@-moz-keyframes animacao2 { from {-moz-transform: scale(1);} 
- to {-moz-transform: scale(1.1);} }
-
-@keyframes animacao2 { from {transform: scale(1);} 
- to {transform: scale(1.1);} }
+  animation-name: animacao1;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
 
 
-.yes a:hover {-webkit-animation-name: animacao2;
--webkit-animation-duration: 0.8s;
--webkit-animation-timing-function:  linear;
--webkit-animation-iteration-count: infinite;
--webkit-animation-direction: alternate;
+.gameover {
+  width: 750px;
+  height: auto;
+  padding-top: 60px;
+  background: none;
+}
 
--moz-animation-name: animacao2;
--moz-animation-duration: 0.8s;
--moz-animation-timing-function:  linear;
--moz-animation-iteration-count: infinite;
--moz-animation-direction: alternate;
+.gameover p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 100px;
+  font-family: 'Architects Daughter', cursive;
+  line-height: 120px;
+  text-align: center;
+  text-shadow: 5px 5px #000000;
+  color: #ffffff;
+}
 
-animation-name: animacao2;
-animation-duration: 0.8s;
-animation-timing-function:  linear;
-animation-iteration-count: infinite;
-animation-direction: alternate;}
+.startover {
+  width: 750px;
+  height: auto;
+  padding-top: 40px;
+}
+
+.startover p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  font-family: 'Architects Daughter', cursive;
+  color: #ffffff;
+  text-shadow: 2.5px 2.5px #000000;
+  margin-top: 10%;
+}
+
+.opcoes {
+  width: 550px;
+  height: auto;
+  padding-top: 50px;
+  margin: auto;
+}
+
+.yes a {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Architects Daughter', cursive;
+  color: #111010;
+  text-decoration: none;
+  text-shadow: 1.5px 1.5px #383636;
+  padding: 25px 100px 25px 100px;
+  border-radius: 20px;
+  background: #fffefe;
+  float: left;
+  margin-top: 15%;
+}
+
+@-webkit-keyframes animacao2 {
+  from {
+    -webkit-transform: scale(1);
+  }
+
+  to {
+    -webkit-transform: scale(1.2);
+  }
+}
+
+@-moz-keyframes animacao2 {
+  from {
+    -moz-transform: scale(1);
+  }
+
+  to {
+    -moz-transform: scale(1.1);
+  }
+}
+
+@keyframes animacao2 {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
+
+
+.yes a:hover {
+  -webkit-animation-name: animacao2;
+  -webkit-animation-duration: 0.8s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+
+  -moz-animation-name: animacao2;
+  -moz-animation-duration: 0.8s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
+
+  animation-name: animacao2;
+  animation-duration: 0.8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
 
 
 
 .no a {
-    text-align: center;
-font-size: 30px;
-font-weight: bold;
-font-family: 'Architects Daughter', cursive;
-color: #111010;
-text-decoration: none;
-text-shadow: 1.5px 1.5px #383636;
-padding: 25px 100px 25px 100px;
-border-radius: 20px;
-background: #fffefe;
-float: right;
-margin-top: 15%}
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Architects Daughter', cursive;
+  color: #111010;
+  text-decoration: none;
+  text-shadow: 1.5px 1.5px #383636;
+  padding: 25px 100px 25px 100px;
+  border-radius: 20px;
+  background: #fffefe;
+  float: right;
+  margin-top: 15%
+}
 
 .cred {
-    text-align: center ;
-    font-size: 25px;
-    font-weight: lighter;
-    font-family: 'Architects Daughter', cursive;
-    color: #111010;
-    text-decoration: none;
-    text-shadow: 1.5px 1.5px #383636;
-    padding: 15px 60px 15px 60px;
-    border-radius: 20px;
-    background: #fffefe;
-    float: center;
-    margin-top: 33%;}
+  text-align: center;
+  font-size: 25px;
+  font-weight: lighter;
+  font-family: 'Architects Daughter', cursive;
+  color: #111010;
+  text-decoration: none;
+  text-shadow: 1.5px 1.5px #383636;
+  padding: 15px 60px 15px 60px;
+  border-radius: 20px;
+  background: #fffefe;
+  float: center;
+  margin-top: 33%;
+}
 
 
-@-webkit-keyframes animacao3 { 0% {-webkit-transform: translate(-5px,0px);} 
-25% {-webkit-transform: translate(-2.5px, 0px);}
-50% {-webkit-transform: translate(0px, 0px);}
-75% {-webkit-transform: translate(2.5px, 0px);}
-100% {-webkit-transform: translate(5px, 0px);} }
+@-webkit-keyframes animacao3 {
+  0% {
+    -webkit-transform: translate(-5px, 0px);
+  }
 
-@-moz-keyframes animacao3 { 0% {-moz-transform: translate(-5px,0px);} 
-25% {-moz-transform: translate(-2.5px, 0px);}
-50% {-moz-transform: translate(0px, 0px);}
-75% {-moz-transform: translate(2.5px, 0px);}
-100% {-moz-transform: translate(5px, 0px);} }
+  25% {
+    -webkit-transform: translate(-2.5px, 0px);
+  }
 
-@keyframes animacao3 { 0% {transform: translate(-5px,0px);} 
-25% {transform: translate(-2.5px, 0px);}
-50% {transform: translate(0px, 0px);}
-75% {transform: translate(2.5px, 0px);}
-100% {transform: translate(5px, 0px);} }
+  50% {
+    -webkit-transform: translate(0px, 0px);
+  }
+
+  75% {
+    -webkit-transform: translate(2.5px, 0px);
+  }
+
+  100% {
+    -webkit-transform: translate(5px, 0px);
+  }
+}
+
+@-moz-keyframes animacao3 {
+  0% {
+    -moz-transform: translate(-5px, 0px);
+  }
+
+  25% {
+    -moz-transform: translate(-2.5px, 0px);
+  }
+
+  50% {
+    -moz-transform: translate(0px, 0px);
+  }
+
+  75% {
+    -moz-transform: translate(2.5px, 0px);
+  }
+
+  100% {
+    -moz-transform: translate(5px, 0px);
+  }
+}
+
+@keyframes animacao3 {
+  0% {
+    transform: translate(-5px, 0px);
+  }
+
+  25% {
+    transform: translate(-2.5px, 0px);
+  }
+
+  50% {
+    transform: translate(0px, 0px);
+  }
+
+  75% {
+    transform: translate(2.5px, 0px);
+  }
+
+  100% {
+    transform: translate(5px, 0px);
+  }
+}
 
 
-.no a:hover {-webkit-animation-name: animacao3;
--webkit-animation-duration: 0.15s;
--webkit-animation-timing-function:  linear;
--webkit-animation-iteration-count: infinite;
--webkit-animation-direction: alternate;
+.no a:hover {
+  -webkit-animation-name: animacao3;
+  -webkit-animation-duration: 0.15s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
 
--moz-animation-name: animacao3;
--moz-animation-duration: 0.15s;
--moz-animation-timing-function:  linear;
--moz-animation-iteration-count: infinite;
--moz-animation-direction: alternate;
+  -moz-animation-name: animacao3;
+  -moz-animation-duration: 0.15s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
 
-animation-name: animacao3;
-animation-duration: 0.15s;
-animation-timing-function:  linear;
-animation-iteration-count: infinite;
-animation-direction: alternate;}
+  animation-name: animacao3;
+  animation-duration: 0.15s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
 
 /* Dawson Code Here */
 #topBar {
@@ -202,6 +369,7 @@ animation-direction: alternate;}
   border-radius: 10px;
   margin-bottom: 10px;
 }
+
 #game-player {
   display: flex;
   flex-direction: column;
@@ -210,30 +378,35 @@ animation-direction: alternate;}
   background-color: #000;
   z-index: 0;
 }
+
 #time {
   justify-content: center;
   width: fit-content;
 }
+
 #crisis {
-  border-radius: 7px; 
+  border-radius: 7px;
   width: 100%;
   height: 3vh;
-  box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   background-color: greenyellow;
 }
+
 #crisis::-webkit-progress-bar {
   background-color: yellow;
   border-radius: 7px;
 }
+
 #crisis[value]::-webkit-progress-value {
   background-color: red;
   border-radius: 7px;
-  box-shadow: 1px 1px 5px 3px rgba( 255, 0, 0, 0.8 );
+  box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8);
 }
+
 #crisis[value]::-moz-progress-bar {
   background-color: red;
   border-radius: 7px;
-  box-shadow: 1px 1px 5px 3px rgba( 255, 0, 0, 0.8 );
+  box-shadow: 1px 1px 5px 3px rgba(255, 0, 0, 0.8);
 }
 
 #middleBar {
@@ -246,6 +419,7 @@ animation-direction: alternate;}
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 #choice-box {
   display: flex;
   justify-content: center;
@@ -255,6 +429,7 @@ animation-direction: alternate;}
   width: 300px;
   z-index: 2;
 }
+
 #choice-box button {
   text-align: center;
   width: 95%;
@@ -264,17 +439,20 @@ animation-direction: alternate;}
   font-weight: bold;
   text-shadow: 2.5px 2.5px #000000;
 }
+
 #game-images {
   align-content: center;
   width: 500px;
   height: 500px;
   z-index: 1;
 }
+
 #game-images .camera {
   width: 100%;
   height: 100%;
   margin: auto;
 }
+
 #game-images .frame {
   max-width: 100%;
   max-height: 100%;
@@ -289,6 +467,7 @@ animation-direction: alternate;}
   margin-bottom: 10px;
   flex-direction: row;
 }
+
 #dialog-box {
   width: 67%;
   background-color: rgba(128, 128, 128, 0.25);
@@ -297,10 +476,12 @@ animation-direction: alternate;}
   height: 250px;
   z-index: 2;
 }
+
 #dialog-box p {
   font-size: 25px;
   text-shadow: 2.5px 2.5px #000000;
 }
+
 #stat-box {
   width: 27%;
   background-color: rgba(128, 128, 128, 0.25);
@@ -344,3 +525,4 @@ animation-direction: alternate;}
     height: 400px;
   }
 }
+
