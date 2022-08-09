@@ -30,7 +30,7 @@ function navigate(direction, room) {
 
   leftNavBtn.data({ room: nextRoom.toLeft }).text(nextRoom.toLeft)
   rightNavBtn.data({ room: nextRoom.toRight }).text(nextRoom.toRight)
-
+  // if Bathroom
 }
 
 function navClick(ev) {
@@ -40,6 +40,59 @@ function navClick(ev) {
   navigate(direction, room)
 }
 $('button.nav').on('click', navClick)
+
+const elements = {
+  dialogHeader: $('#dialog-box').find('h2'),
+  dialogText: $('#dialog-box').find('p'),
+  statBox: $('#stat-box'),
+  choiceBox: $('#choice-box')
+}
+
+const dilemmas = {
+  list: [],
+  gamePaused: false,
+  fetchAll: async () => {
+    const result = await fetch('/api/dilemmas').then(result => result.json())
+    dilemmas.list = result;
+  },
+  present: (dilemma_id) => {
+    dilemmas.gamePaused = true
+    const dilemma = dilemmas.list.find(({ id }) => dilemma_id == id)
+    console.log(dilemma)
+    elements.dialogHeader.html(dilemma.title)
+    elements.dialogText.html(dilemma.description)
+    elements.choiceBox.html('')
+    for (let choice of dilemma.choices) {
+      elements.choiceBox.append(`<button class="choice-btn" id="${choice.id}">${choice.description}</button>`)
+    }
+  },
+  dialogHeader: $('#dialog-box').find('h2'),
+  handleChoice: async (ev) => {
+    const { target } = ev;
+    const id = $(target).attr('id')
+
+    const result = await fetch(`/api/choices/${id}/random-outcome`)
+    const outcome = await result.json()
+    dilemmas.handleOutcome(outcome)
+    dilemmas.gamePaused = false
+  },
+  handleOutcome: (outcome) => {
+    console.log(outcome)
+    const { currentState: { crisis_level, preparedness, time_left }, randomOutcome: { description, time_change, crisis_change, preparedness_change } } = outcome
+    elements.dialogHeader.html(description)
+    elements.dialogText.html(`Time change: ${time_change}<br>Crisis change: ${crisis_change}<br>Preparedness change: ${preparedness_change}`)
+    elements.statBox.html(`Crisis Level: ${crisis_level}<br>Preparedness: ${preparedness}%<br>Time left: ${time_left} minutes`)
+  }
+
+}
+
+async function startGame() {
+  $('#choice-box').on('click', '.choice-btn', dilemmas.handleChoice)
+  await dilemmas.fetchAll()
+  dilemmas.present(1)
+}
+if (map) startGame()
+
 
 //start in the middle of the map
 var x = 90;
@@ -106,16 +159,15 @@ const positionTracker = {
     if (nextStr !== positionTracker.current) chance(x, y)
     positionTracker.current = nextStr
   },
-  atLeftWall: false,
-  atRightWall: false,
-  atTopWall: false,
-  atBottomWall: false
 }
 
 const chance = (x, y) => {
-  console.log({ x, y })
   const currentRoom = $(map).data('room')
-  if (Math.floor(Math.random() * 1000) < 5) console.log(currentRoom, x, y)
+  // console.log(currentRoom, { x, y })
+  if (Math.floor(Math.random() * 1000) < 5) {
+    stopMove()
+    console.log(currentRoom, x, y)
+  }
 }
 
 //Set up the game loop
@@ -145,22 +197,30 @@ const keys = {
   40: directions.down,
 }
 
-if (map) {
-  document.addEventListener("keydown", (e) => {
-    var dir = keys[e.which];
-    if (dir && held_directions.indexOf(dir) === -1) {
-      held_directions.unshift(dir)
-    }
-  })
-
-  document.addEventListener("keyup", (e) => {
+function startMove(e) {
+  console.log('start')
+  if (dilemmas.gamePaused) return;
+  var dir = keys[e.which];
+  if (dir && held_directions.indexOf(dir) === -1) {
+    held_directions.unshift(dir)
+  }
+}
+function stopMove(e) {
+  if (e) {
     var dir = keys[e.which];
     var index = held_directions.indexOf(dir);
     if (index > -1) {
       held_directions.splice(index, 1)
     }
-  });
+  } else {
 
+    held_directions.pop()
+    console.log(held_directions)
+  }
+}
+if (map) {
+  document.addEventListener("keydown", startMove)
+  document.addEventListener("keyup", stopMove);
 }
 
 

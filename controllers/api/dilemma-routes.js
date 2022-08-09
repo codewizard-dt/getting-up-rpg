@@ -20,6 +20,16 @@ router.get('/initial', tryCatchHandler(async (req, res) => {
 
 }))
 
+router.get('/', tryCatchHandler(async (req, res) => {
+  const dilemmas = await Dilemma.getJson({
+    include: {
+      model: Choice,
+      attributes: ['id', 'description']
+    }
+  })
+  res.json(dilemmas)
+}))
+
 router.get('/random', tryCatchHandler(async (req, res) => {
   const { crisis_level } = req.session
   const dilemma = await Dilemma.getRandomJson({
