@@ -1,13 +1,11 @@
 <section class="container" id="game-player">
 
-  <h2 id="title">Getting up</h2>
-  <button id="mute-btn">sound on</button>
+  <h2 id="time">{{{time}}}</h2>
+  <progress id="crisis" value="{{{crisis}}}" max="100"></progress>
 
   <div class=".col-10" id="game-images">
     <!-- this will contain an image to display on the page -->
-    <iframe id="game-play" width="100%" height="100%" src="/bedroom.html">
-
-    </iframe>
+    <iframe id="game-play" src="/bedroom.html"></iframe>
   </div>
 
   <div class=".col-10" id="choice-box">

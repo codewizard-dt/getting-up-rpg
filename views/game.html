@@ -14,12 +14,17 @@
   <main class="game">
 
     <section class="container" id="game-player">
+      
+      <!-- Top Of Page -->
+      <!-- Contains Crisis Bar and Timer -->
+      <h2 class=".col-4" id="time"> 8:30 am</h2>
+      <progress class=".col-6" id="crisis" max="100" value="0"></progress>
 
-      <h2 id="title">Getting up</h2>
-      <button id="mute-btn">sound on</button>
-
-      <div class=".col-10" id="game-images">
+      <!-- Middle of Page -->
+      <!-- Contains Game and Choice Options -->
+      <div id="game-images">
         <!-- this will contain an image to display on the page -->
+        <iframe id="game-play" src="../bathroom.html"></iframe>
       </div>
 
       <div class=".col-10" id="choice-box">
@@ -27,7 +32,8 @@
           <p>this is choice 2</p>
           <p>this is choice 3</p>
       </div>
-
+      <!-- Bottom of Page -->
+      <!-- Contains game dialog and stat changes -->
       <div class=".col-10 row justify-content-end" id="dialog-box">
           <p>this is the dialog box</p>
       </div>
