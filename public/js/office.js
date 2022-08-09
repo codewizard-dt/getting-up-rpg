@@ -2,8 +2,8 @@ var character = document.querySelector(".character");
 var map = document.querySelector(".map");
 
 //start in the middle of the map
-var x = 180;
-var y = 80;
+var x = 0;
+var y = 0;
 var held_directions = []; //State of which arrow keys we are holding down
 var speed = 1; //How fast the character moves in pixels per frame
 

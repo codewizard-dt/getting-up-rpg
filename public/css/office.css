@@ -49,8 +49,8 @@
  
  .map {
     image-rendering: pixelated;
-    background-image: url("../Images/Office.png");
-    background-size: 105%;
+    background-image: url("../Images/office.png.png");
+    background-size: 100%;
     width: calc(13 * var(--grid-cell));
     height: calc(10 * var(--grid-cell));
     position: absolute;
