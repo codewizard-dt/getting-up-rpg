@@ -22,7 +22,8 @@ const dilemmaData = [
   },
   {
     title: 'So arise to meet the day.',
-    description: 'Or go back to sleep. Does it really matter anymore?'
+    description: 'Or go back to sleep. Does it really matter anymore?',
+    location: 'office'
     //  potential for automatic game over, if you choose to go back asleep
   },
 
@@ -32,7 +33,8 @@ const dilemmaData = [
   // bathroom dialogue 
   {
     title: "The bathroom could use a good cleaning at some point.",
-    description: 'Is it this weekend that your Mom is visiting?'
+    description: 'Is it this weekend that your Mom is visiting?',
+    location: 'bathroom'
     // triggered on bathroom enter
   },
 
