@@ -9,10 +9,10 @@ if (userVideo) {
   userVideo.parentElement.addEventListener('click', () => {
     clicks++
     const bg = userVideo.nextElementSibling
-    if (clicks % 4 === 1) bg.style.backgroundimages = `url(/images/red-8bit-overlay.png)`
-    else if (clicks % 4 === 2) bg.style.backgroundimages = `url(/images/green-8bit-overlay.png)`
-    else if (clicks % 4 === 3) bg.style.backgroundimages = `url(/images/blue-8bit-overlay.png)`
-    else bg.style.backgroundimages = `url(/images/gray-8bit-overlay.png)`
+    if (clicks % 4 === 1) bg.style.backgroundImage = `url(/images/red-8bit-overlay.png)`
+    else if (clicks % 4 === 2) bg.style.backgroundImage = `url(/images/green-8bit-overlay.png)`
+    else if (clicks % 4 === 3) bg.style.backgroundImage = `url(/images/blue-8bit-overlay.png)`
+    else bg.style.backgroundImage = `url(/images/gray-8bit-overlay.png)`
   })
 }
 

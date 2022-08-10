@@ -79,17 +79,17 @@
   position: relative;
 }
 .map.bedroom{
-  background-image: url(/images/bedroom.png);
+  background-image: url(/Images/bedroom.png);
 }
 .map.bathroom{
-  background-image: url(/images/bathroom1.gif);
+  background-image: url(/Images/bathroom1.gif);
   background-size: 84%;
 }
 .map.kitchen{
-  background-image: url(/images/Kitchen.png);
+  background-image: url(/Images/Kitchen.png);
 }
 .map.office{
-  background-image: url(/images/office.png);
+  background-image: url(/Images/office.png);
 }
 
 .character {

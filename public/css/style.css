@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #fake-zoom {
   display: flex;
   gap: 5px;
@@ -12,17 +11,23 @@
   flex: 1 0 50%;
   min-height: 300px;
 }
+.video-wrap h4 {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 .video-overlay {
   position: absolute;
   content: ' ';
   width: 100%;
   height: calc(100% - 5px);
   background-image: url(/images/gray-8bit-overlay.png);
-  opacity: 0.5;
+  opacity: 0.15;
   transition: 400ms;
   left: 0;
   top: 0;
-=======
+}
 /* this needs to be organized before turning in */
 /* Universal Code (if you see something pls add here)*/
 * {
@@ -394,7 +399,7 @@
   margin-bottom: 10px;
 }
 
-#game-player {
+#game-player, #winner {
   display: flex;
   flex-direction: column;
   width: auto;
@@ -402,6 +407,27 @@
   background-color: #000;
   z-index: 0;
   max-height: 100vh;
+}
+
+#winner h4.flash {
+  color: rgb(241,180,251);
+  animation: opacity-flash 500ms infinite alternate;
+}
+#winner h2 {
+  animation: opacity-flash 500ms 10 alternate;
+}
+#winner h1 {
+  font-family: monospace;
+}
+
+@keyframes opacity-flash {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 #time {
@@ -552,6 +578,5 @@
   #stat-box {
     height: 400px;
   }
->>>>>>> main
 }
 

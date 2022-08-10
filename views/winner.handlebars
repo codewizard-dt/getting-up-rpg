@@ -1,13 +1,24 @@
-<div id="fake-zoom">
-  <div class="video-wrap">
-    <video id="user-video" width="100%"></video>
-    <div class="video-overlay"></div>
+<section class="container" id="winner">
+  <h1>Welcome to Coding Bootcamp!</h1>
+  <hr>
+  <h2>You were ({{ preparedness }}%) prepared!!</h2>
+  <h2>You made it with ({{ time_left }}) minutes to spare!!</h2>
+  <hr>
+  <div id="fake-zoom">
+    <div class="video-wrap">
+      <video id="cat-video" width="100%" controls>
+        <source src="/videos/nyan-cat.mp4" type="video/mp4">
+      </video>
+      <h4 class="flash">Your teacher is a cat today</h4>
+    </div>
+    <div class="video-wrap">
+      <video id="user-video" width="100%"></video>
+      <div class="video-overlay"></div>
+      <h4>&#127881; &#127881; &#127881; &#127881; &#127881; &#127881;
+      </h4>
+    </div>
   </div>
-  <div class="video-wrap">
-    <video id="cat-video" width="100%" controls>
-      <source src="/videos/nyan-cat.mp4" type="video/mp4">
-    </video>
-  </div>
-</div>
 
-<script src="/js/fake-zoom.js"></script>
+  <script src="/js/fake-zoom.js"></script>
+
+</section>

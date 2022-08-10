@@ -222,6 +222,10 @@ const positionTracker = {
       if (positionTracker.stepsSinceDilemma % 150 === 0) {
         const roomDilemmas = dilemmas.findByRoom(dilemmas.currentRoom)
         if (roomDilemmas.length) dilemmas.handleDilemma(roomDilemmas[0].id)
+      } else if (dilemmas.currentRoom === 'office') {
+        if (x < 84 && x > 66 && y < 34 && $('.character').attr('facing') === 'up') {
+          winGame()
+        }
       } else {
         chance(x, y)
       }
@@ -236,8 +240,6 @@ const chance = (x, y) => {
   if (Math.floor(Math.random() * 1000) < 10) {
     const randomDilemmas = dilemmas.findByRoom('any')
     if (randomDilemmas.length) dilemmas.handleDilemma(randomDilemmas[0].id)
-    // dilemmas.pause()
-    console.log(currentRoom, x, y)
   }
 }
 

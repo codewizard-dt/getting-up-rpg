@@ -40,5 +40,10 @@ router.get('/game-over', (req, res) => {
   res.render('gameover', { user_name, crisis_level, preparedness, time_left })
 })
 
+router.get('/winner', (req, res) => {
+  const { user_name, crisis_level, preparedness, time_left } = req.session
+  res.render('winner', { user_name, crisis_level, preparedness, time_left })
+})
+
 
 module.exports = router
