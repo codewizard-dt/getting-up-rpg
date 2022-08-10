@@ -198,7 +198,7 @@ const positionTracker = {
     if (nextStr !== positionTracker.current) {
       positionTracker.totalSteps++
       positionTracker.stepsSinceDilemma++
-      if (positionTracker.stepsSinceDilemma % 50 === 0) {
+      if (positionTracker.stepsSinceDilemma % 150 === 0) {
         const roomDilemmas = dilemmas.findByRoom(dilemmas.currentRoom)
         if (roomDilemmas.length) dilemmas.handleDilemma(roomDilemmas[0].id)
       } else {
@@ -212,7 +212,7 @@ const positionTracker = {
 
 const chance = (x, y) => {
   const currentRoom = $(map).data('room')
-  if (Math.floor(Math.random() * 1000) < 5) {
+  if (Math.floor(Math.random() * 1000) < 10) {
     const randomDilemmas = dilemmas.findByRoom('any')
     if (randomDilemmas.length) dilemmas.handleDilemma(randomDilemmas[0].id)
     // dilemmas.pause()
