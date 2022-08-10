@@ -399,7 +399,7 @@
   margin-bottom: 10px;
 }
 
-#game-player{
+#game-player, #winner{
   display: flex;
   flex-direction: column;
   width: auto;
@@ -410,14 +410,14 @@
   z-index: 0;
 }
 
-#game-player, #winner {
+/* #game-player, #winner {
   display: flex;
   flex-direction: column;
   width: auto;
   z-index: 0;
   min-height: auto;
   background-color: #000;
-}
+} */
 
 #winner h4.flash {
   color: rgb(241,180,251);
