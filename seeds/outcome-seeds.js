@@ -3,8 +3,8 @@ const { Outcome } = require("../models")
 const outcomeData = [
   // triggers in bedroom, tied to dilemmas 
   {
-    description: 'You slept 90 minutes!!!',
-    time_change: -90,
+    description: 'You slept 60 minutes!!!',
+    time_change: -60,
     preparedness_change: -30,
     crisis_change: 50,
   },

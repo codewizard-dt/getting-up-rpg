@@ -20,13 +20,12 @@ router.get('/game', async (req, res) => {
     })
     req.session.save(() => {
       req.session.crisis_level = 0
-      req.session.time_left = 60 * 3.5
+      req.session.time_left = 60 * 3
       req.session.preparedness = 0
       const { title, description, choices } = dilemma
       res.render('game', { dilemma: { title, description }, options: choices })
     })
 
-    // res.render('game')
   } catch (error) {
     console.error(error);
     res.status(500).json('Error')
