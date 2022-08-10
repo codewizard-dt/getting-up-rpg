@@ -19,6 +19,7 @@
   "homepage": "https://github.com/codewizard-dt/getting-up-rpg#readme",
   "dependencies": {
     "connect-session-sequelize": "^7.1.4",
+    "dnd-dice-roller": "^1.0.2",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
@@ -26,6 +27,10 @@
     "mysql2": "^2.3.3",
     "path": "^0.12.7",
     "sequelize": "^6.21.3",
+<<<<<<< HEAD
     "webrtc-adapter": "^8.1.1"
+=======
+    "swup": "^2.0.17"
+>>>>>>> main
   }
 }

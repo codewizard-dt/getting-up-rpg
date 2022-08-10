@@ -1,14 +1,26 @@
-<section class="container">
-    <div class=".col-10">
-        {{!-- Options Div - Contains Options for user to select --}}
-        {{#each options as |option|}}
-        {{> game-options}}
-        {{/each}}
+<section class="container" id="game-player">
+
+  <div id="topBar">
+    <h2 id="time">7:00 am</h2>
+    <progress class=".col 6" id="crisis" value="{{{crisis}}}" max="100"></progress>
+  </div>
+
+  <div id="middleBar">
+    <div id="game-images">
+      <!-- this will contain an image to display on the page -->
+      {{> game-map}}
     </div>
-    <div class=".col-10 row justify-content-end">
-        {{!-- Dialog Div - Contains Text from game --}}
-        {{> game-dialog}}
+
+    <div id="choice-box">
+      {{#each options as |option|}}
+      {{> game-options}}
+      {{/each}}
     </div>
+  </div>
+
+  <div id="bottomBar">
+    {{> game-dialog dilemma}}
+  </div>
 
     {{> fake-zoom  }}
 
