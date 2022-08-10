@@ -399,14 +399,23 @@
   margin-bottom: 10px;
 }
 
-#game-player, #winner {
+#game-player{
   display: flex;
   flex-direction: column;
   width: auto;
   height: 100vh;
+  border: grey solid 1px;
+  box-shadow: #000000 0px 0px 10px;
   background-color: #000;
   z-index: 0;
-  max-height: 100vh;
+}
+
+#game-player, #winner {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  z-index: 0;
+  min-height: auto;
 }
 
 #winner h4.flash {
@@ -433,6 +442,7 @@
 #time {
   justify-content: center;
   width: fit-content;
+  font-family: "Nova Display", sans-serif;
 }
 
 #crisis {
@@ -486,7 +496,8 @@
   width: 95%;
   border-radius: 25px;
   background-color: rgba(128, 128, 128, 0.25);
-  font-size: 25px;
+  padding: 1vh;
+  font-size: 20px;
   font-weight: bold;
   text-shadow: 2.5px 2.5px #000000;
 }
@@ -527,12 +538,13 @@
   background-color: rgba(128, 128, 128, 0.25);
   margin: 0 auto;
   border-radius: 25px;
+  padding: 3vh;
   /* height: 250px; */
   z-index: 2;
 }
 
 #dialog-box p {
-  font-size: 25px;
+  font-size: 20px;
   text-shadow: 2.5px 2.5px #000000;
 }
 
@@ -540,7 +552,9 @@
   width: 27%;
   background-color: rgba(128, 128, 128, 0.25);
   margin: 0 auto;
+  padding: 3vh;
   border-radius: 25px;
+  font-size: 20px;
   /* height: 250px; */
   z-index: 2;
 }
@@ -558,9 +572,15 @@
   #dialog-box {
     height: 150px;
   }
+  #dialog-box p {
+    font-size: 12px;
+  }
   #stat-box {
     height: 150px;
+    font-size: 12px;
+    padding: 1vh
   }
+
 }
 @media screen and (min-width: 2000px) {
   #game-images {
@@ -568,6 +588,7 @@
     height: 600px;
   }
   #choice-box {
+    top: 3vh;
     margin-top: 5vh;
     width: 98%;
     gap: 10px;
