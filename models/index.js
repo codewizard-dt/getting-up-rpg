@@ -2,6 +2,7 @@ const Dilemma = require('./Dilemma')
 const Choice = require('./Choice')
 const Outcome = require('./Outcome')
 const ChoiceOutcome = require('./ChoiceOutcome')
+const Quote = require('./Quote')
 
 Dilemma.hasMany(Choice)
 Choice.belongsTo(Dilemma)
@@ -16,5 +17,5 @@ Outcome.belongsToMany(Choice, {
 })
 
 module.exports = {
-  Dilemma, Choice, Outcome, ChoiceOutcome
+  Dilemma, Choice, Outcome, ChoiceOutcome, Quote
 }

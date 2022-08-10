@@ -20,6 +20,17 @@ router.get('/initial', tryCatchHandler(async (req, res) => {
 
 }))
 
+<<<<<<< HEAD
+// router.get('/random', tryCatchHandler(async (req, res) => {
+//   const { crisis_level } = req.session
+//   const dilemma = await Dilemma.getRandomJson({
+//     where: {
+//       min_crisis_level: { [Op.gte]: crisis_level }
+//     }
+//   })
+//   res.json(dilemma)
+// }))
+=======
 router.get('/', tryCatchHandler(async (req, res) => {
   const dilemmas = await Dilemma.getJson({
     include: {
@@ -39,5 +50,6 @@ router.get('/random', tryCatchHandler(async (req, res) => {
   })
   res.json(dilemma)
 }))
+>>>>>>> main
 
 module.exports = router
