@@ -11,11 +11,13 @@ const dilemmaData = [
   {
     title: 'Beep beep',
     description: `You come across the funniest meme on Reddit.`,
+    location: 'bedroom'
     // triggered after # 1
   },
   {
     title: 'Time is fickle, tricky, mistress.',
-    description: 'Your life is like that tacky hour glass on your nightstand, except worse, the hour glass can reset, inconsequentially, with no evidence of its previous bearings.'
+    description: 'Your life is like that tacky hour glass on your nightstand, except worse, the hour glass can reset, inconsequentially, with no evidence of its previous bearings.',
+    location: 'bedroom'
     // triggered after # 2
   },
   {

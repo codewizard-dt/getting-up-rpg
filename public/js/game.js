@@ -23,11 +23,12 @@ const roomMap = {
 }
 
 function navigate(direction, room) {
+  if (dilemmas.gamePaused) return;
   const nextRoom = roomMap[room]
   const leftNavBtn = $('button.left-nav')
   const rightNavBtn = $('button.right-nav')
   $(map).removeClass('bedroom bathroom kitchen office').addClass(room).data({ room })
-
+  dilemmas.currentRoom = room
   leftNavBtn.data({ room: nextRoom.toLeft }).text(nextRoom.toLeft)
   rightNavBtn.data({ room: nextRoom.toRight }).text(nextRoom.toRight)
   // if Bathroom
@@ -45,51 +46,87 @@ const elements = {
   dialogHeader: $('#dialog-box').find('h2'),
   dialogText: $('#dialog-box').find('p'),
   statBox: $('#stat-box'),
-  choiceBox: $('#choice-box')
+  choiceBox: $('#choice-box'),
+  crisisBar: $('#crisis'),
+  timeEl: $('#time'),
+  updateTime: () => {
+    elements.timeEl.text(time.toLocaleString(luxon.DateTime.TIME_SIMPLE))
+  },
+  cameraEl: $('.camera')
 }
 
 const dilemmas = {
   list: [],
+  pause: () => {
+    dilemmas.gamePaused = true
+    elements.cameraEl.addClass('paused')
+  },
+  unpause: () => {
+    dilemmas.gamePaused = false
+    elements.cameraEl.removeClass('paused')
+  },
   gamePaused: false,
   fetchAll: async () => {
     const result = await fetch('/api/dilemmas').then(result => result.json())
     dilemmas.list = result;
+    dilemmas.roomList = dilemmas.findByRoom('bedroom')
+    console.log(dilemmas.list, dilemmas.roomList)
   },
-  present: (dilemma_id) => {
-    dilemmas.gamePaused = true
+  currentRoom: 'bedroom',
+  roomList: function () { return dilemmas.findByRoom(dilemmas.currentRoom) },
+  findByRoom: (roomName) => {
+    return dilemmas.list.filter(({ location }) => location === roomName)
+  },
+  handleDilemma: (dilemma_id) => {
     const dilemma = dilemmas.list.find(({ id }) => dilemma_id == id)
-    console.log(dilemma)
+    if (!dilemma) return
+    stopMove()
+    dilemmas.pause()
+    dilemmas.list.splice(dilemmas.list.indexOf(dilemma), 1)
+    console.log("*\n*\nNEW DILEMMA", dilemma, `${dilemmas.list.length} left`)
     elements.dialogHeader.html(dilemma.title)
     elements.dialogText.html(dilemma.description)
     elements.choiceBox.html('')
     for (let choice of dilemma.choices) {
       elements.choiceBox.append(`<button class="choice-btn" id="${choice.id}">${choice.description}</button>`)
     }
+    if (dilemma.choices.length === 0) {
+      elements.choiceBox.append(`<button class="choice-btn">Continue... I suppose...</button>`)
+    }
   },
-  dialogHeader: $('#dialog-box').find('h2'),
   handleChoice: async (ev) => {
     const { target } = ev;
     const id = $(target).attr('id')
+    if (id) {
+      const result = await fetch(`/api/choices/${id}/random-outcome`)
+      const outcome = await result.json()
+      dilemmas.handleOutcome(outcome)
+    } else {
+      elements.choiceBox.html('')
 
-    const result = await fetch(`/api/choices/${id}/random-outcome`)
-    const outcome = await result.json()
-    dilemmas.handleOutcome(outcome)
-    dilemmas.gamePaused = false
+    }
+    dilemmas.unpause()
   },
   handleOutcome: (outcome) => {
     console.log(outcome)
     const { currentState: { crisis_level, preparedness, time_left }, randomOutcome: { description, time_change, crisis_change, preparedness_change } } = outcome
-    elements.dialogHeader.html(description)
-    elements.dialogText.html(`Time change: ${time_change}<br>Crisis change: ${crisis_change}<br>Preparedness change: ${preparedness_change}`)
-    elements.statBox.html(`Crisis Level: ${crisis_level}<br>Preparedness: ${preparedness}%<br>Time left: ${time_left} minutes`)
+    elements.choiceBox.html(`<h2>${description}</h2><p>Crisis level +${crisis_change}%<br>Preparedness +${preparedness_change}%<br>Minutes wasted ${Math.abs(time_change)}</p>`)
+    elements.dialogHeader.html('')
+    elements.dialogText.html(``)
+    elements.statBox.html(`Crisis Level: ${crisis_level} <br>Preparedness: ${preparedness}%<br>Time left: ${time_left} minutes`)
+    elements.crisisBar.val(crisis_level)
+    time = time.minus({ minutes: time_change })
+    elements.updateTime()
   }
 
 }
 
+let time = luxon.DateTime.fromObject({ hour: 7 })
 async function startGame() {
   $('#choice-box').on('click', '.choice-btn', dilemmas.handleChoice)
+  elements.updateTime()
   await dilemmas.fetchAll()
-  dilemmas.present(1)
+  dilemmas.handleDilemma(1)
 }
 if (map) startGame()
 
@@ -101,7 +138,7 @@ var held_directions = []; //State of which arrow keys we are holding down
 var speed = 1; //How fast the character moves in pixels per frame
 
 const placeCharacter = () => {
-
+  if (dilemmas.gamePaused) return
   var pixelSize = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue('--pixel-size')
   );
@@ -154,18 +191,31 @@ const placeCharacter = () => {
 
 const positionTracker = {
   current: null,
+  totalSteps: 0,
+  stepsSinceDilemma: 0,
   next: (x, y) => {
     const nextStr = `${x}-${y}`
-    if (nextStr !== positionTracker.current) chance(x, y)
+    if (nextStr !== positionTracker.current) {
+      positionTracker.totalSteps++
+      positionTracker.stepsSinceDilemma++
+      if (positionTracker.stepsSinceDilemma % 50 === 0) {
+        const roomDilemmas = dilemmas.findByRoom(dilemmas.currentRoom)
+        if (roomDilemmas.length) dilemmas.handleDilemma(roomDilemmas[0].id)
+      } else {
+        chance(x, y)
+      }
+
+    }
     positionTracker.current = nextStr
   },
 }
 
 const chance = (x, y) => {
   const currentRoom = $(map).data('room')
-  // console.log(currentRoom, { x, y })
   if (Math.floor(Math.random() * 1000) < 5) {
-    stopMove()
+    const randomDilemmas = dilemmas.findByRoom('any')
+    if (randomDilemmas.length) dilemmas.handleDilemma(randomDilemmas[0].id)
+    // dilemmas.pause()
     console.log(currentRoom, x, y)
   }
 }
@@ -198,8 +248,8 @@ const keys = {
 }
 
 function startMove(e) {
-  console.log('start')
   if (dilemmas.gamePaused) return;
+  console.log('start')
   var dir = keys[e.which];
   if (dir && held_directions.indexOf(dir) === -1) {
     held_directions.unshift(dir)
@@ -213,9 +263,8 @@ function stopMove(e) {
       held_directions.splice(index, 1)
     }
   } else {
-
-    held_directions.pop()
-    console.log(held_directions)
+    held_directions = []
+    $('.character').attr('walking', false)
   }
 }
 if (map) {
@@ -234,11 +283,11 @@ const removePressedAll = () => {
 }
 if (map) {
   document.body.addEventListener("mousedown", () => {
-    console.log('mouse is down')
+    // console.log('mouse is down')
     isPressed = true;
   })
   document.body.addEventListener("mouseup", () => {
-    console.log('mouse is up')
+    // console.log('mouse is up')
     isPressed = false;
     held_directions = [];
     removePressedAll();

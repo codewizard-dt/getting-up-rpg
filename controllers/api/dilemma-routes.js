@@ -13,7 +13,7 @@ router.get('/initial', tryCatchHandler(async (req, res) => {
   })
   req.session.save(() => {
     req.session.crisis_level = 0
-    req.session.time_left = 60 * 3.5
+    req.session.time_left = 60 * 3
     req.session.preparedness = 0
     res.status(200).json(dilemma)
   })
