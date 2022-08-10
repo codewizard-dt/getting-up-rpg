@@ -1,6 +1,6 @@
 # Getting up RPG
 
-First run the project at 
+First run the project at https://getting-up-rpg.herokuapp.com/
 
 # Project Description
 
@@ -11,19 +11,24 @@ They will be given 3 options to start, that each will effect the crisis level, p
 Throughout the game the user will be faced with random dilemnas, choices and outcomes.
 
 # Technologies Used
--CSS
--JavaScript
--Handlebars
--HTML
+* CSS
+* JavaScript
+* Handlebars
+* HTML
+
+# Future Development
+With more time we would have liked a more polished UI
+Better event triggers
 
 # Credits 
-David: https://github.com/codewizard-dt
-Troy: https://github.com/TEkdahl92
-Callie: https://github.com/calliebwill
-Neel: https://github.com/kakaralan
-Dawson: https://github.com/TheTrueMop
+* [David](https://github.com/codewizard-dt)
+* [Troy](https://github.com/TEkdahl92)
+* [Callie](https://github.com/calliebwill)
+* [Neel](https://github.com/kakaralan)
+* [Dawson](https://github.com/TheTrueMop)
 
-
+# Sources
+[MediaDevices.getUserMedia() - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia) | [Luxon](https://cdnjs.com/libraries/luxon) | 
 
 # MIT License
 
