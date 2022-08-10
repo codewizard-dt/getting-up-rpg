@@ -416,6 +416,7 @@
   width: auto;
   z-index: 0;
   min-height: auto;
+  background-color: #000;
 }
 
 #winner h4.flash {
