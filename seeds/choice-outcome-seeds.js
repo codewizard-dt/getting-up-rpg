@@ -6,11 +6,11 @@ const choiceOutcomeData = [
     outcome_id: 1,
     likelihood: 8
   },
-  {
-    choice_id: 1,
-    outcome_id: 2,
-    likelihood: 1
-  },
+  // {
+  //   choice_id: 1,
+  //   outcome_id: 2,
+  //   likelihood: 1
+  // },
   {
     choice_id: 2,
     outcome_id: 3,
@@ -94,6 +94,7 @@ const choiceOutcomeData = [
    outcome_id: 21,
    likelihood: 1,
   }
+
 
   
 ]

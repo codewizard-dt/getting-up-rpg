@@ -21,6 +21,7 @@ Dilemma.init(
     },
     location: {
       type: DataTypes.STRING,
+      defaultValue: 'any'
     },
     initial: {
       type: DataTypes.BOOLEAN,

@@ -36,7 +36,6 @@
   from {
     transform: rotate(-15deg)
   }
-
   to {
     transform: rotate(15deg)
   }
@@ -374,9 +373,10 @@
   display: flex;
   flex-direction: column;
   width: auto;
-  height: 100%;
+  height: 100vh;
   background-color: #000;
   z-index: 0;
+  max-height: 100vh;
 }
 
 #time {
@@ -441,9 +441,10 @@
 }
 
 #game-images {
+  position: relative;
   align-content: center;
-  width: 500px;
-  height: 500px;
+  /* width: 500px;
+  height: 500px; */
   z-index: 1;
 }
 
@@ -461,11 +462,13 @@
 #bottomBar {
   display: flex;
   width: 100%;
-  height: auto;
+  flex-grow: 1;
+  /* height: auto; */
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
   flex-direction: row;
+  justify-content: stretch;
 }
 
 #dialog-box {
@@ -473,7 +476,7 @@
   background-color: rgba(128, 128, 128, 0.25);
   margin: 0 auto;
   border-radius: 25px;
-  height: 250px;
+  /* height: 250px; */
   z-index: 2;
 }
 
@@ -487,7 +490,7 @@
   background-color: rgba(128, 128, 128, 0.25);
   margin: 0 auto;
   border-radius: 25px;
-  height: 250px;
+  /* height: 250px; */
   z-index: 2;
 }
 
