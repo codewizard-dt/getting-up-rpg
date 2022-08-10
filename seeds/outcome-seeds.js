@@ -92,7 +92,7 @@ const outcomeData = [
     crisis_change: 20
   },
   {
-    description: 'The smell of fresh cut grass through the kitchen reminds you of your alcoholic father.',
+    description: 'The smell of fresh cut grass coming through the window reminds you of your alcoholic father.',
     time_change: 0,
     preparedness_change: 0,
     crisis_change: 20
