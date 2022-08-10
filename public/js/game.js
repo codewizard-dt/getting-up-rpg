@@ -117,8 +117,29 @@ const dilemmas = {
     elements.crisisBar.val(crisis_level)
     time = time.minus({ minutes: time_change })
     elements.updateTime()
+    if (crisis_level === 100) {
+      dilemmas.pause()
+      elements.choiceBox.html(`<h2>Sorrrrryy...</h2><p>You are in existential crisis mode!  You didn't make it to class.</p>`)
+      setTimeout(() => {
+        loseGame()
+      }, 2000)
+    } else if (time_left === 0) {
+      dilemmas.pause()
+      elements.choiceBox.html(`<h2>LATE FOR CLASS!</h2><p>You didn't make it to class on time. You are marked "ABSENT FOREVER"</p>`)
+      setTimeout(() => {
+        loseGame()
+      }, 2000)
+
+    }
   }
 
+}
+
+function loseGame() {
+  window.location = '/game-over'
+}
+function winGame() {
+  window.location = '/winner'
 }
 
 let time = luxon.DateTime.fromObject({ hour: 7 })
