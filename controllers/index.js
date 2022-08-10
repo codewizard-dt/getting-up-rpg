@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Dilemma, Choice } = require('../models')
+const { Dilemma, Choice, Quote } = require('../models')
 const apiRoutes = require('./api')
 
 router.use('/api', apiRoutes)
@@ -34,10 +34,10 @@ router.get('/game', async (req, res) => {
 })
 
 // game over
-router.get('/game-over', (req, res) => {
+router.get('/game-over', async (req, res) => {
   const { user_name, crisis_level, preparedness, time_left } = req.session
-
-  res.render('gameover', { user_name, crisis_level, preparedness, time_left })
+  const quote = await Quote.getRandomJson()
+  res.render('gameover', { quote, user_name, crisis_level, preparedness, time_left })
 })
 
 router.get('/winner', (req, res) => {

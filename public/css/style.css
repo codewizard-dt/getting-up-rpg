@@ -166,19 +166,24 @@
 .gameover {
   width: 750px;
   height: auto;
-  padding-top: 60px;
+  /* padding-top: 60px; */
+  padding: 1em;
   background: none;
 }
 
 .gameover p {
   margin-top: 0px;
   margin-bottom: 0px;
-  font-size: 100px;
+  font-size: 3rem;
   font-family: 'Architects Daughter', cursive;
-  line-height: 120px;
+  line-height: 1.1;
   text-align: center;
   text-shadow: 5px 5px #000000;
   color: #ffffff;
+}
+.gameover p.author{
+  margin-top: 1rem;
+  font-size: 2rem;
 }
 
 .startover {

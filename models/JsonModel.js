@@ -1,4 +1,5 @@
 const { Model } = require('sequelize')
+const getRandom = require('../utils/getRandom')
 
 /**
  * Custom model to handle the tedium of `this.get({plain:true})` 
