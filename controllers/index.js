@@ -4,12 +4,6 @@ const apiRoutes = require('./api')
 
 router.use('/api', apiRoutes)
 
-<<<<<<< HEAD
-router.get('/', (req, res) => {
-  res.render('game', { options: [] })
-})
-
-=======
 // homepage
 router.get('/', (req, res) => {
   res.render('homepage')
@@ -47,5 +41,4 @@ router.get('/game-over', (req, res) => {
 })
 
 
->>>>>>> main
 module.exports = router
