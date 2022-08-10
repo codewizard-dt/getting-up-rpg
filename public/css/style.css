@@ -138,7 +138,8 @@
 
 #tudo {
   width: 750px;
-  height: 980px;
+  max-width: 95%;
+  /* height: 980px; */
   margin: auto;
   margin-top: 20px;
   border-radius: 100px;
@@ -183,7 +184,7 @@
 .startover {
   width: 750px;
   height: auto;
-  padding-top: 40px;
+  /* padding-top: 40px; */
 }
 
 .startover p {
@@ -195,7 +196,7 @@
   font-family: 'Architects Daughter', cursive;
   color: #ffffff;
   text-shadow: 2.5px 2.5px #000000;
-  margin-top: 10%;
+  /* margin-top: 10%; */
 }
 
 .opcoes {
@@ -217,7 +218,7 @@
   border-radius: 20px;
   background: #fffefe;
   float: left;
-  margin-top: 15%;
+  /* margin-top: 15%; */
 }
 
 @-webkit-keyframes animacao2 {
@@ -285,7 +286,7 @@
   border-radius: 20px;
   background: #fffefe;
   float: right;
-  margin-top: 15%
+  /* margin-top: 15% */
 }
 
 .cred {
@@ -298,7 +299,7 @@
   text-shadow: 1.5px 1.5px #383636;
   padding: 15px 60px 15px 60px;
   border-radius: 20px;
-  background: #fffefe;
+  background: rgb(200,200,200);
   float: center;
   margin-top: 33%;
 }
