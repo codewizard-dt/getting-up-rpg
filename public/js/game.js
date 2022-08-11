@@ -117,8 +117,29 @@ const dilemmas = {
     elements.crisisBar.val(crisis_level)
     time = time.minus({ minutes: time_change })
     elements.updateTime()
+    if (crisis_level === 100) {
+      dilemmas.pause()
+      elements.choiceBox.html(`<h2>Sorrrrryy...</h2><p>You are in existential crisis mode!  You didn't make it to class.</p>`)
+      setTimeout(() => {
+        loseGame()
+      }, 2000)
+    } else if (time_left === 0) {
+      dilemmas.pause()
+      elements.choiceBox.html(`<h2>LATE FOR CLASS!</h2><p>You didn't make it to class on time. You are marked "ABSENT FOREVER"</p>`)
+      setTimeout(() => {
+        loseGame()
+      }, 2000)
+
+    }
   }
 
+}
+
+function loseGame() {
+  window.location = '/game-over'
+}
+function winGame() {
+  window.location = '/winner'
 }
 
 let time = luxon.DateTime.fromObject({ hour: 7 })
@@ -201,6 +222,10 @@ const positionTracker = {
       if (positionTracker.stepsSinceDilemma % 150 === 0) {
         const roomDilemmas = dilemmas.findByRoom(dilemmas.currentRoom)
         if (roomDilemmas.length) dilemmas.handleDilemma(roomDilemmas[0].id)
+      } else if (dilemmas.currentRoom === 'office') {
+        if (x < 84 && x > 66 && y < 34 && $('.character').attr('facing') === 'up') {
+          winGame()
+        }
       } else {
         chance(x, y)
       }
@@ -215,8 +240,6 @@ const chance = (x, y) => {
   if (Math.floor(Math.random() * 1000) < 10) {
     const randomDilemmas = dilemmas.findByRoom('any')
     if (randomDilemmas.length) dilemmas.handleDilemma(randomDilemmas[0].id)
-    // dilemmas.pause()
-    console.log(currentRoom, x, y)
   }
 }
 

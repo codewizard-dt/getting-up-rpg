@@ -4,8 +4,22 @@
 <div id="tudo">
 
   <div class="gameover">
-    <p> Consumed </p>
-    <p>With Despair </p>
+    <p class="quote"> {{ quote.quote }} </p>
+    <p class="author">-{{ quote.author }} </p>
+  </div>
+
+  <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+    <div class="card-header">Final Stats</div>
+    <div class="card-body">
+      <h5 class="card-title">{{user_name}}</h5>
+      <p class="card-text">
+      <ul>
+        <li>Time left: {{time_left}}</li>
+        <li>Preparedness: {{preparedness}}</li>
+        <li>Crisis level: {{crisis_level}}</li>
+      </ul>
+      </p>
+    </div>
   </div>
 
   <div class="startover">
@@ -13,27 +27,15 @@
   </div>
 
   <div class="opcoes">
-    <div class="yes"> <a href=""> YES </a> </div>
-    <div class="no"> <a href="#"> NO </a> </div>
+    <div class="yes"> <a href="/game"> YES </a> </div>
+    <div class="no"> <a href="https://www.wikihow.com/Start-the-Day-off-Right"> NO </a> </div>
   </div>
 
   <div class="cred">
     <div class="groupname">
-      <h2 href="cred"> A Group Nine Games Project</h2>
+      <a href="https://github.com/codewizard-dt/getting-up-rpg">
+        <h2> A Group Nine Games Project</h2>
+      </a>
     </div>
-  </div>
-</div>
-
-<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-  <div class="card-header">Final Stats</div>
-  <div class="card-body">
-    <h5 class="card-title">{{user_name}}</h5>
-    <p class="card-text">
-    <ul>
-      <li>Time left: {{time_left}}</li>
-      <li>Preparedness: {{preparedness}}</li>
-      <li>Crisis level: {{crisis_level}}</li>
-    </ul>
-    </p>
   </div>
 </div>

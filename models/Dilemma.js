@@ -27,6 +27,9 @@ Dilemma.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false
     }
+    /**
+     * bedroom kitchen bathroom office staircase
+     */
   },
   {
     // Link to database connection

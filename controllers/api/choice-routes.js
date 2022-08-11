@@ -37,7 +37,9 @@ router.get('/:id/random-outcome', tryCatchHandler(async (req, res) => {
 
   req.session.save(() => {
     req.session.crisis_level = clamp(0, 100, crisis_change, req.session.crisis_level)
+    // req.session.crisis_level = 100
     req.session.time_left += time_change
+//     req.session.time_left = 0
     req.session.preparedness = clamp(0, 100, preparedness_change, req.session.preparedness)
     res.json({
       randomOutcome,
