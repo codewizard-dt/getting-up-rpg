@@ -23,8 +23,6 @@ This game was partially born of an appreciation of existentalist philosophy and 
 
 In these difficult times it is our hope that "Getting up." acts as a humorous distraction from the oft ridiculousness of the human condition. 
 
-
-
 # Future Development
 With more time we would have liked a more polished UI
 Better event triggers
