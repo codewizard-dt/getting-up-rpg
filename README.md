@@ -23,6 +23,18 @@ This game was partially born of an appreciation of existentalist philosophy and 
 
 In these difficult times it is our hope that "Getting up." acts as a humorous distraction from the oft ridiculousness of the human condition. 
 
+# User Story 
+First you are brought to the landing page to enter your username
+![Landing page](./demo/Landing%20page.png)
+You choose to start game
+![Start Game](./demo/start.png)
+You are given three options to begin the game
+![Choices](./demo/choices.png)
+
+# Process
+The logic behind user id's, choices, dilemnas, outcomes, crisis change, preparedness, likelihood and linking the tables together
+![Outcomes](./demo/outcomes.png)
+
 # Future Development
 With more time we would have liked a more polished UI
 Better event triggers
