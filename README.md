@@ -15,6 +15,15 @@ Throughout the game the user will be faced with random dilemnas, choices and out
 * JavaScript
 * Handlebars
 * HTML
+# Concept
+
+With this project our team desired to create a game that took into account a range of disruptive possibilities from benign ever day realities to comically absurd improbabilities that could disrupt the shared experience of a morning routine. 
+
+This game was partially born of an appreciation of existentalist philosophy and how it relates to individual experience. The Jean-Paul Sartre quote ", all human actions are equivalent and all are on principle doomed to failure" worked as a catalyst for the game design which relied heavily on themes of both chaos and the absurdism of possibility. 
+
+In these difficult times it is our hope that "Getting up." acts as a humorous distraction from the oft ridiculousness of the human condition. 
+
+
 
 # Future Development
 With more time we would have liked a more polished UI
