@@ -15,6 +15,7 @@ Throughout the game the user will be faced with random dilemnas, choices and out
 * JavaScript
 * Handlebars
 * HTML
+
 # Concept
 
 With this project our team desired to create a game that took into account a range of disruptive possibilities from benign ever day realities to comically absurd improbabilities that could disrupt the shared experience of a morning routine. 
@@ -31,9 +32,37 @@ You choose to start game
 You are given three options to begin the game
 ![Choices](./demo/choices.png)
 
-# Process
-The logic behind user id's, choices, dilemnas, outcomes, crisis change, preparedness, likelihood and linking the tables together
-![Outcomes](./demo/outcomes.png)
+# Process Development
+
+The backend connects to a MySQL database using Sequelize ORM. The five models involved are Dilemma, Choice, Outcome, ChoiceOutcome (pivot), and Quote. The following image shows the result tables and their column types. Quote model is not included in the image but has two columns 'author' and 'quote' in addition to primary key 'id', and both are strings. 
+
+![Table Setups](./demo/process/schema.png)
+
+The relationships between the models are as follows:
+
+- Dilemma hasMany Choices
+- Choice belongsTo Dilemma
+- Choice belongsToMany Outcomes (through ChoiceOutcome)
+- Outcome belongsToMany Choices (through ChoiceOutcome)
+
+The following image shows a flow chart of how the models are conceptually related to each other.
+
+![Table flowchart](./demo/process/schema-flow.png)
+
+There is also a helper class that extends Model from Sequelize called JsonModel that adds the following methods to each model:
+
+| Method Name | Type | Purpose |
+| --- | --- | --- |
+| getJson | async instance method | serializes the model into JSON |
+| getJson | async static method | uses Sequelize Model's findAll method and maps the result array into JSON using the instance getJson method |
+| getJsonByPk | async static method | uses Sequelize Model's findByPk method and returns the model as JSON, or null if the model does not exist |
+| getRandomJson | async static method | uses Sequelize Model's findAll method then randomly selects one item from the result and returns it as JSON |
+
+# Game Play and Logic
+
+The following image shows the main concerns of tracking the game status and how they are accomplished.
+
+![Game play logic](./demo/process/gameplay.png)
 
 # Future Development
 With more time we would have liked a more polished UI
