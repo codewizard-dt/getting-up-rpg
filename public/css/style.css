@@ -414,6 +414,7 @@
   box-shadow: #000000 0px 0px 10px;
   background-color: #000;
   z-index: 0;
+  overflow: hidden;
 }
 
 /* #game-player, #winner {
@@ -532,7 +533,7 @@
   display: flex;
   width: 100%;
   flex-grow: 1;
-  /* height: auto; */
+  overflow: hidden;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -576,16 +577,22 @@
     width: 98%;
     gap: 5px;
   }
-  #dialog-box {
-    height: 150px;
+  #dialog-box h2 {
+    font-size: 1.2rem;
   }
   #dialog-box p {
-    font-size: 12px;
+    font-size: 15px;
   }
   #stat-box {
-    height: 150px;
+    /* height: 150px; */
     font-size: 12px;
     padding: 1vh
+  }
+  .btn.nav.left-nav {
+    transform: translate(-2rem, -50%) !important;
+  }
+  .btn.nav.right-nav {
+    transform: translate(2rem, -50%) !important;
   }
 
 }
