@@ -315,6 +315,12 @@ if (map) {
     held_directions = [];
     removePressedAll();
   })
+  document.body.addEventListener("touchstop", () => {
+    // console.log('mouse is up')
+    isPressed = false;
+    held_directions = [];
+    removePressedAll();
+  })
 
 }
 
